@@ -10,7 +10,7 @@ import './App.css';
 
 const App = ({ getRedditTop, posts, fetchedPosts }) => {
   useEffect(() => {
-    getRedditTop(0)
+    getRedditTop(50)
   }, [])
   return (
     <div className="wrapper">
@@ -29,13 +29,13 @@ const App = ({ getRedditTop, posts, fetchedPosts }) => {
   );
 }
 
-export const mapStateToProps = ({ top }) => ({
+const mapStateToProps = ({ top }) => ({
   fetchedPosts: top.fetched,
   posts: top.data && top.data.children
 });
 
-export const mapDispatchToProps = dispatch => ({
-  getRedditTop: (count) => dispatch(fetchRedditTop(count))
+const mapDispatchToProps = dispatch => ({
+  getRedditTop: (limit) => dispatch(fetchRedditTop(limit))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

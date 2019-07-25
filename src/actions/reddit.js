@@ -16,13 +16,22 @@ const errorFetching = error => ({
   payload: error,
 });
 
-export const fetchRedditTop = (count) => async (dispatch) => {
+const buildUrlString = (limit, before, after) => {
+  if(before)
+    return `http://www.reddit.com/top/.json?&limit=${limit}&before=${before}`
+  if(after)
+    return `http://www.reddit.com/top/.json?&limit=${limit}&after=${after}`
+  return `http://www.reddit.com/top/.json?&limit=${limit}`
+}
+
+export const fetchRedditTop = (limit, before, after) => async (dispatch) => {
   try {
     dispatch(fetchingRedditTop());
-    const response = await fetch(`http://www.reddit.com/top/.json?count=${count}&limit=50`)
+    const response = await fetch(buildUrlString(limit, before, after))
     const data = await response.json()
     return dispatch(fetchedRedditTop(data));
   } catch (error) {
+    console.log(error)
     return dispatch(errorFetching(error));
   }
 };

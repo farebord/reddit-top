@@ -9,11 +9,13 @@ const redditTop = (state = initialState, action) => {
   switch (action.type) {
     case REQUEST_TOP:
       return {
+        ...state,
         loading: true,
         fetched: false,
       };
     case RECEIVED_TOP:
       return {
+        ...state,
         loading: false,
         fetched: true,
         ...action.payload,

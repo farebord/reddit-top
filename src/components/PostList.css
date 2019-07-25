@@ -31,5 +31,6 @@
 
 .post-details {
   flex: 1 0 auto;
+  margin-top: 0.6125rem;
   font-size: 0.825rem;
 }
