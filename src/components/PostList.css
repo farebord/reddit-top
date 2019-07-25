@@ -1,0 +1,35 @@
+.post-row {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.post-thumbnail {
+  flex: 0 1 75px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.post-thumbnail > img {
+  width: 75px;
+}
+
+.post-info {
+  flex: 1 1 auto;
+  overflow-wrap: break-word;
+  padding: 0 1rem;
+}
+
+.post-title {
+  flex: 1 0 auto;
+  font-size: 1rem;
+}
+
+.post-details {
+  flex: 1 0 auto;
+  font-size: 0.825rem;
+}

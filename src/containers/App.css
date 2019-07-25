@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.left-panel, .right-panel {
+  flex: 1 0 50%;
+}
+
+.menu-row {
+  padding: 1rem;
+}
+
+@media (max-width: 1200px) {
+  .left-panel {
+    flex: 1 1 auto
+  }
+
+  .right-panel {
+    display: none;
+  }
+}
